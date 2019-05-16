@@ -26,6 +26,7 @@ public class DatabaseConfig {
         final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        sessionFactory.setConfigLocation(resolver.getResource("classpath:mybatis/mybatis-config.xml")); // mybatis config 설정
         sessionFactory.setMapperLocations(resolver.getResources("classpath:mybatis/mapper/*.xml")); // resources/mybatis/ 폴더내에 있는 모든 xml 파일에 적용
         sessionFactory.getObject().getConfiguration().setMapUnderscoreToCamelCase(true); // mapper 에 camel case 맵핑
         return sessionFactory.getObject();
