@@ -1,10 +1,7 @@
 package com.example.deviceapi.controller;
 
 import com.example.deviceapi.service.ApiService;
-import com.example.deviceapi.vo.GetUserGetRequest;
-import com.example.deviceapi.vo.GetUserPostRequest;
-import com.example.deviceapi.vo.GetUserPostResponse;
-import com.example.deviceapi.vo.UserVo;
+import com.example.deviceapi.vo.*;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -70,6 +67,12 @@ public class ApiController {
     @RequestMapping(value="/all/v1", method = {RequestMethod.GET, RequestMethod.POST})
     public GetUserPostResponse all() {
         return new GetUserPostResponse(service.getUser(null)); // 응답결과 userList 안에 넣기
+    }
+
+    @RequestMapping(value="/insertApi/v1", method = {RequestMethod.POST})
+    public InsertApiRsponse insertApi(@RequestBody InsertApiRequest req) {
+        service.inserLog(req);
+        return new InsertApiRsponse(); // 응답결과 userList 안에 넣기
     }
 
 }

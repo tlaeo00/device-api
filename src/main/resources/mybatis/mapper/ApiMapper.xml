@@ -13,4 +13,11 @@
             </if>
     </select>
 
+
+    <insert id="insertLog" parameterType="com.example.deviceapi.vo.LogVo">
+        INSERT INTO t_log_history (C_CCODE, C_UNO, C_PAGE, C_USEYN, C_CREATE, C_CUNO, C_UPDATE, C_UUNO, C_MCODE
+        ) VALUES (
+         #{cCcode}, #{cUno}, #{cPage}, 'Y', now(), 1, now(), #{cUno}, null);
+    </insert>
+
 </mapper>

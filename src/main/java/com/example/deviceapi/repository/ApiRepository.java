@@ -1,5 +1,6 @@
 package com.example.deviceapi.repository;
 
+import com.example.deviceapi.vo.LogVo;
 import com.example.deviceapi.vo.UserVo;
 import org.apache.commons.lang3.StringUtils;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -23,6 +24,10 @@ public class ApiRepository {
      */
     public List<UserVo> selectUser(UserVo vo) {
         return sqlSessionTemplate.selectList(StringUtils.join(NAMESPACE, ".", "selectUser"), vo);
+    }
+
+    public void inserLog(LogVo vo) {
+        sqlSessionTemplate.insert(StringUtils.join(NAMESPACE, ".", "insertLog"), vo);
     }
 
 }
