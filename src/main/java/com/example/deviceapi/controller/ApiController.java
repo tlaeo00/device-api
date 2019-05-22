@@ -69,9 +69,15 @@ public class ApiController {
         return new GetUserPostResponse(service.getUser(null)); // 응답결과 userList 안에 넣기
     }
 
-    @RequestMapping(value="/insertApi/v1", method = {RequestMethod.POST})
-    public InsertApiRsponse insertApi(@RequestBody InsertApiRequest req) {
-        service.inserLog(req);
+    @RequestMapping(value="/insertLog/v1", method = {RequestMethod.POST})
+    public InsertApiRsponse insertLog(@RequestBody InsertApiRequest req) {
+        service.insertLog(req);
+        return new InsertApiRsponse(); // 응답결과 userList 안에 넣기
+    }
+
+    @RequestMapping(value="/insertLogTransactional/v1", method = {RequestMethod.POST})
+    public InsertApiRsponse insertLogTransactional(@RequestBody InsertApiRequest req) {
+        service.insertLogTransactional(req);
         return new InsertApiRsponse(); // 응답결과 userList 안에 넣기
     }
 
