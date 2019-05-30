@@ -1,5 +1,8 @@
 package com.example.deviceapi.vo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserVo {
 
     private String cUno;
