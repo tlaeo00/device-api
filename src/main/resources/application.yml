@@ -1,0 +1,25 @@
+# Loco yaml export: Symfony YAML object
+# Project: application.properties conversion
+# Release: Working copy
+# Locale: ko-KR, Korean (Republic of Korea)
+# Exported by: Unregistered user
+# Exported at: Fri, 31 May 2019 10:34:00 +0900
+---
+server:
+  port: "9000"
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: "true"
+      force: "true"
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mysql://localhost:3300/mksdbver2?useUnicode=true&characterEncoding=UTF8&useSSL=false
+    username: mksuser
+    password: Posco1ct1231
+logging:
+  file: /home/ec2-user/log/food.service.log
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS
+...
