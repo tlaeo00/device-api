@@ -5,9 +5,12 @@
 # Exported by: Unregistered user
 # Exported at: Fri, 31 May 2019 10:34:00 +0900
 ---
+# local setting
 server:
   port: "9000"
 spring:
+  profiles:
+    active: local # -Dspring.profiles.active 설정 안주면 기본 local
   http:
     encoding:
       charset: UTF-8
@@ -22,4 +25,31 @@ logging:
   file: /home/ec2-user/log/food.service.log
   pattern:
     dateformat: yyyy-MM-dd HH:mm:ss.SSS
-...
+env:
+  user: tlaeo00-local
+  name: 심대진-local
+  num: 1
+---
+# dev setting
+server:
+  port: "80"
+spring:
+  profiles: dev
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: "true"
+      force: "true"
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mysql://devurl
+    username: mksuser
+    password: Posco1ct1231
+logging:
+  file: /home/ec2-user/log/food.service.log
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS
+env:
+  user: tlaeo00-dev
+  name: 심대진-dev
+  num: 9

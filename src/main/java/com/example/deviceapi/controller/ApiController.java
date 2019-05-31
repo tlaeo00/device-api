@@ -1,5 +1,6 @@
 package com.example.deviceapi.controller;
 
+import com.example.deviceapi.common.YamConfig;
 import com.example.deviceapi.service.ApiService;
 import com.example.deviceapi.vo.*;
 import org.apache.commons.lang3.StringUtils;
@@ -19,6 +20,9 @@ public class ApiController {
     @Autowired
     private ApiService service;
 
+    @Autowired
+    private YamConfig yamConfig;
+
     /**
      * Get 방식 @RequestParam 으로 받기
      * 예시 : http://localhost:9000/getUserGet/v1?userNo=12
@@ -28,7 +32,9 @@ public class ApiController {
      */
     @RequestMapping(value="/getUserGet/v1", method = RequestMethod.GET)
     public UserVo getUserGetV1(@RequestParam String userNo) {
-        log.info("userNo : {}", userNo);
+        log.info("user : {}", yamConfig.getUser());
+        log.info("name : {}", yamConfig.getName());
+        log.info("num : {}", yamConfig.getNum());
         if(StringUtils.isBlank(userNo)) throw new RuntimeException("userNo 가 없습니다.");
         return service.getUser(new UserVo(userNo)).stream().findFirst().orElseGet(() -> new UserVo());
     }
