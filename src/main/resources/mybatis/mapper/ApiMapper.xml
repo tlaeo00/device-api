@@ -3,13 +3,13 @@
 <mapper namespace="ApiMapper">
 
     <select id="selectUser" parameterType="UserVo" resultType="UserVo">
-        SELECT C_UNO
-             , C_NAME
-             , C_DNAME
-          FROM t_user
+        SELECT user_device_id AS c_uno
+             , user_id AS c_name
+             , master_yn AS c_dname
+          FROM t_user_device
          WHERE 1=1
             <if test="@org.apache.commons.lang3.StringUtils@isNotBlank(cUno)">
-            AND C_UNO = #{cUno}
+            AND device_id = #{cUno}
             </if>
     </select>
 

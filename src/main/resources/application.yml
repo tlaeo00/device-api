@@ -18,9 +18,9 @@ spring:
       force: "true"
   datasource:
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-    url: jdbc:log4jdbc:mysql://localhost:3300/mksdbver2?useUnicode=true&characterEncoding=UTF8&useSSL=false
-    username: mksuser
-    password: Posco1ct1231
+    url: jdbc:log4jdbc:mysql://dev-iotgen2-db-cluster.cluster-c4w3qgmrhaj3.us-east-1.rds.amazonaws.com:3306/winix?useUnicode=true&characterEncoding=UTF8&useSSL=false
+    username: winixapps
+    password: rwapps!23
 logging:
   file: /home/ec2-user/log/food.service.log
   pattern:
