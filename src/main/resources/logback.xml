@@ -1,8 +1,12 @@
 <configuration>
+
+    <!-- 특정 로그 컨버팅 -->
+    <conversionRule conversionWord="convertLog" converterClass="com.example.deviceapi.common.CustomLog" />
+    
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%-5level %d{HH:mm:ss.SSS} %logger [%method:%line] - %convertLog%n</pattern><!-- level 로그 컬러설정 -->
         </encoder>
     </appender>
 
