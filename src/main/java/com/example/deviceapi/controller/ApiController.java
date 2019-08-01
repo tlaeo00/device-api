@@ -32,7 +32,7 @@ public class ApiController {
      */
     @RequestMapping(value="/getUserGet/v1", method = RequestMethod.GET)
     public UserVo getUserGetV1(@RequestParam String userNo) {
-        log.info("user : {}", yamConfig.getUser());
+        log.info("user : {}", "logloglogloglog");
         log.info("name : {}", yamConfig.getName());
         log.info("num : {}", yamConfig.getNum());
         if(StringUtils.isBlank(userNo)) throw new RuntimeException("userNo 가 없습니다.");
