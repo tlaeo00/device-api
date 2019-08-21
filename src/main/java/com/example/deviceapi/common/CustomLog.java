@@ -17,7 +17,7 @@ public class CustomLog extends ClassicConverter {
         String parsingMsg = "device_id"; // 파싱 문자열
         String replaceMsg = "device_id = '...'"; // replace 문자열
         
-        String msg = iLoggingEvent.getMessage();
+        String msg = iLoggingEvent.getFormattedMessage();
         msg = msg.replaceAll("(" + parsingMsg + " = '[\\d\\w\\S]*')", replaceMsg);
         msg = msg.replaceAll("(" + parsingMsg + " ='[\\d\\w\\S]*')", replaceMsg);
         msg = msg.replaceAll("(" + parsingMsg + "= '[\\d\\w\\S]*')", replaceMsg);
